@@ -3,7 +3,9 @@ import * as styles from './styles.css';
 
 const ExtendedWeatherLocation = () => {
     return (
-        <div className={styles.ExtendedWeatherLocation}> Extended Weather Location</div>
+        <div className={styles.ExtendedWeatherLocation}> 
+            Extended Weather Location
+        </div>
     )
 }
 

@@ -9,7 +9,7 @@ const LocationList = ({ aLocations }) => {
         <div className={styles.aLocations}>
           { showLocationList() }
         </div>
-    )
+    );
 }
 
 export default LocationList;
