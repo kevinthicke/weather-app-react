@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import * as styles from './styles.css';
 
 const additiveValue = 273.15;
 
@@ -29,13 +30,15 @@ export default class WeatherTemperature extends Component {
     showTemperature () {
         const { temperature } = this.state;
         
-        return ( temperature>additiveValue ) ? <span> {`${temperature} ºK`} </span> : <span> {`${temperature} ºC`} </span>
+        return ( temperature>additiveValue ) ? 
+                <button className={styles.btn}> {`${temperature} ºK`} </button> :
+                <button className={styles.btn}> {`${temperature} ºC`} </button>
     }
 
     render() {
         const { temperature } = this.state;
         return(
-            <div onClick={this.changeUnits}>
+            <div className={styles.WeatherTemperature} onClick={this.changeUnits}>
 
                 { temperature ? this.showTemperature() : " ... Loading" }
             </div>

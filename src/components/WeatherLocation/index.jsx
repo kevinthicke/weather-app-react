@@ -3,6 +3,7 @@ import Location from './Location';
 import WeatherTemperature from './WeatherData/WeatherTemperature';
 import WeatherExtraInfo from './WeatherData/WeatherExtraInfo';
 import getOpenWeatherMapData from '../../utils/getOpenWeatherMapData';
+import * as styles from './styles.css';
 
 export default class WeatherLocation extends Component {
     constructor() {
@@ -22,10 +23,12 @@ export default class WeatherLocation extends Component {
     render() {
         const { city, temperature, pressure, humidity, weatherId } = this.state;
         return (
-            <div>
+            <div className={styles.WeatherLocation}>
                 <Location city={city}/>
-                <WeatherTemperature temperature={temperature} weatherId={weatherId}/>
-                <WeatherExtraInfo/>
+                    <div className={styles.WeatherData}>
+                        <WeatherTemperature temperature={temperature} weatherId={weatherId}/>
+                        <WeatherExtraInfo pressure={pressure} humidity={humidity}/>
+                    </div>
             </div>
             )
     }

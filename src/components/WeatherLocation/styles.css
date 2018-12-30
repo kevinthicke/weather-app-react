@@ -1,0 +1,26 @@
+.WeatherLocation {
+    /* fallback for old browsers */
+    background: #00c6ff; 
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to bottom, #00c6ff, #00b7ff);
+    /* IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ 
+    background: linear-gradient(to bottom, #00c6ff, #00b7ff); 
+    width: 420px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+}
+
+.Location {
+    height: 35%;
+    font-size:21pt;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.WeatherData {
+    display:flex;
+}
