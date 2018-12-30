@@ -19,7 +19,7 @@ const limitOpenWeatherMapData = data => {
 
 export default function getOpenWeatherMapData(city) {
     const urlAPI = url(city);
-    const response = fetch(urlAPI).then(response => response.json());
-    
-    return response.then( data => limitOpenWeatherMapData(data));
+    return fetch(urlAPI).then(
+        response => response.json()).then( 
+            data => limitOpenWeatherMapData(data));
 }

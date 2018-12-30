@@ -10,14 +10,16 @@ export default class App extends Component {
     super();
     this.state = { city: null }
   }
-  handleSelectedLocation = (cityClick) => {
-    this.setState({ city: cityClick });
+
+  handleSelectedLocation = (city) => {
+    this.setState({ city });
   }
 
   render() {
     const { city } = this.state;
     return (
       <div className={styles.App}>
+          <div className={styles.title}> Weather App </div>
           <LocationList aLocations={aLocations} onSelectedLocation={this.handleSelectedLocation}/>   
           <ForecastExtended city ={city}/>      
       </div>
