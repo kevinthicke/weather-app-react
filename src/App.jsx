@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import WeatherLocation from './components/WeatherLocation';
 import * as styles from './styles.css';
+import LocationList from './components/LocationList';
+
+const aLocations = ["Bogota", "Lima", "Medellín", "Tenerife", "Barcelona", "Roma", "Cali", "London"];
 
 export default class App extends Component {
   render() {
     return (
       <div className={styles.App}>
-        <WeatherLocation city={"Bogota"}/>
+        <LocationList aLocations={aLocations}/>
       </div>
       );
   }
