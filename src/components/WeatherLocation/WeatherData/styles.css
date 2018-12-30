@@ -1,4 +1,5 @@
 .WeatherTemperature {
+    font-size: 18pt;
     height: 100px;
     width:50%;
     display:flex;
@@ -12,27 +13,6 @@
     margin:auto;
     flex-direction: column;
 }
-
-.btn {
-    font-size: 17pt;
-    color:black;
-    width:130px;
-    height: 50px;
-    border-radius: 3px;
-    background-color: Transparent;
-    background-repeat:no-repeat;
-    border: none;
-    cursor:pointer;
-    overflow: hidden;
-    outline:none;
-    box-shadow: 0 0 1pt white;
-    text-decoration: none;
-}
-
-.btn:hover {
-    box-shadow: 0 0 2pt royalblue
-}
-
 
 .WeatherData {
     display:flex;

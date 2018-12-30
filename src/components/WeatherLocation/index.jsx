@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Location from './Location';
 import WeatherData from './WeatherData'
 import * as styles from './styles.css';
@@ -32,4 +33,9 @@ export default class WeatherLocation extends Component {
             </div>
             )
     }
+}
+
+WeatherLocation.propTypes = {
+    city: PropTypes.string,
+    onWeatherLocationClick: PropTypes.func
 }

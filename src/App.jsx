@@ -9,9 +9,8 @@ export default class App extends Component {
     super();
     this.state = { city: null }
   }
-  handleSelectedLocation = (city) => {
-    this.setState({ city });
-  }
+
+  handleSelectedLocation = (city) => this.setState({ city });
 
   render() {
     const { city } = this.state;

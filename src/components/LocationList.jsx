@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import WeatherLocation from './WeatherLocation';
 import * as styles from './styles.css';
 
@@ -18,6 +19,11 @@ const LocationList = ({ aLocations, onSelectedLocation }) => {
           { showLocationList() }
         </div>
     );
+}
+
+LocationList.propTypes = {
+    aLocations: PropTypes.arrayOf(PropTypes.string),
+    onSelectedLocation: PropTypes.func
 }
 
 export default LocationList;
