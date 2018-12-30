@@ -1,37 +1,36 @@
 import React, { Component } from 'react';
 import * as styles from './styles.css';
-import { urlForecast } from '../../utils/url';
-
-const limitedForecastData = data => {
-    return data;
-}
-
-const getForecast = (city) => {
-    console.log(city);
-    const url = urlForecast(city);
-    return fetch(url).then(
-        response => response.json()).then(
-            data => limitedForecastData(data))
-}
+import getForecast from '../../utils/getForecast';
+import WeatherLocation from '../WeatherLocation';
 
 export default class ForecastExtended extends Component {
-    
-    componentDidUpdate = () => {
-        const { city } = this.props;
-        console.log(city);
-        this.getData(city)
+    constructor() {
+        super();
+        this.state = {
+            city: null,
+            data: null
+        }
+    }
+
+    componentWillReceiveProps(nextProps) {
+        const { city } = nextProps;
+        this.getData(city);
     }
     
     getData = (city) => {
-        console.log(city);
-        getForecast(city).then(limitedData => console.log(limitedData));
+        getForecast(city).then(limitedData => this.setState({ city, data:limitedData}));
     }
-    
 
+    showForecastItems = () => {
+        const { data } = this.state;
+        console.log(data);
+        return data.aLimitedForecastData.map(element => <div > {element.unixTime}</div>);
+    }
     render() {
-        
+        const { city, data } = this.state;
         return (
             <div className={styles.ForecastExtended}>
+                { city ? this.showForecastItems() : "...Loading" } 
             </div>
         )
     }
