@@ -9,7 +9,6 @@ export default class App extends Component {
     super();
     this.state = { city: null }
   }
-
   handleSelectedLocation = (city) => {
     this.setState({ city });
   }
@@ -20,7 +19,11 @@ export default class App extends Component {
       <div className={styles.App}>
           <div className={styles.title}> Weather App </div>
           <LocationList aLocations={aLocations} onSelectedLocation={this.handleSelectedLocation}/>   
-          <div className={styles.ExtendedForecast}> Forecast </div>      
+          <div className={styles.ExtendedForecast}> 
+          { 
+            !city ? "...Loading": `Extended Forecast of ${this.state.city}`  
+          }
+          </div>      
       </div>
       );
   }
