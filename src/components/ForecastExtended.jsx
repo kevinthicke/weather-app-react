@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import * as styles from './styles.css';
-import getForecast from '../../utils/getForecast';
-import WeatherLocation from '../WeatherLocation';
+import getForecast from '../utils/getForecast';
 
 export default class ForecastExtended extends Component {
     constructor() {
