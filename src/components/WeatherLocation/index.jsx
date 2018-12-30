@@ -20,10 +20,12 @@ export default class WeatherLocation extends Component {
 
     getData = city => getOpenWeatherMapData(city).then(limitedData => this.setState(limitedData));
 
+
     render() {
         const { city, temperature, pressure, humidity, weatherId } = this.state;
+        const { onWeatherLocationClick } = this.props;
         return (
-            <div className={styles.WeatherLocation}>
+            <div className={styles.WeatherLocation} onClick={onWeatherLocationClick}>
                 <Location city={city}/>
                     <div className={styles.WeatherData}>
                         <WeatherTemperature temperature={temperature} weatherId={weatherId}/>
