@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Location from './Location';
-import WeatherTemperature from './WeatherData/WeatherTemperature';
-import WeatherExtraInfo from './WeatherData/WeatherExtraInfo';
+import WeatherData from './WeatherData'
 import * as styles from './styles.css';
 import getWeather from '../../utils/getWeather.jsx';
 
@@ -22,15 +21,14 @@ export default class WeatherLocation extends Component {
 
 
     render() {
-        const { city, temperature, pressure, humidity, weatherId } = this.state;
+        const { city, ...data } = this.state;
         const { onWeatherLocationClick } = this.props;
         return (
             <div className={styles.WeatherLocation} onClick={onWeatherLocationClick}>
                 <Location city={city}/>
-                <div className={styles.WeatherData} >
-                        <WeatherTemperature temperature={temperature} weatherId={weatherId}/>
-                        <WeatherExtraInfo pressure={pressure} humidity={humidity}/>
-                    </div>
+                <div className={styles.WeatherData}>
+                    <WeatherData data={data}/>
+                </div>
             </div>
             )
     }
