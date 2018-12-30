@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import Location from './Location';
 import WeatherTemperature from './WeatherData/WeatherTemperature';
 import WeatherExtraInfo from './WeatherData/WeatherExtraInfo';
-import getOpenWeatherMapData from '../../utils/getOpenWeatherMapData';
 import * as styles from './styles.css';
+import getWeather from '../../utils/getOpenWeatherMapData';
 
 export default class WeatherLocation extends Component {
     constructor() {
@@ -18,7 +18,7 @@ export default class WeatherLocation extends Component {
         this.getData(city);
     }
 
-    getData = city => getOpenWeatherMapData(city).then(limitedData => this.setState(limitedData));
+    getData = city => getWeather(city).then(limitedData => this.setState(limitedData));
 
 
     render() {

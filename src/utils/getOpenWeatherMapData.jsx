@@ -1,4 +1,4 @@
-import url from "./url";
+import { urlWeather } from "./url";
 import fetch from 'node-fetch';
 
 const limitOpenWeatherMapData = data => {
@@ -17,9 +17,9 @@ const limitOpenWeatherMapData = data => {
     return ({ city, temperature, pressure, humidity,weatherId })
 }
 
-export default function getOpenWeatherMapData(city) {
-    const urlAPI = url(city);
-    return fetch(urlAPI).then(
+export default function getWeather(city) {
+    const url = urlWeather(city);
+    return fetch(url).then(
         response => response.json()).then( 
             data => limitOpenWeatherMapData(data));
 }
