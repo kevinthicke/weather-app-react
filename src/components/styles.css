@@ -3,3 +3,12 @@
     width: 500px;
     height: 100%;
 }
+
+.aLocations {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-height: 65vh;
+    overflow: auto;
+    padding:10px;
+}

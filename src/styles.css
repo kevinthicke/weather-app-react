@@ -3,4 +3,5 @@
 .App {
     font-family: 'Ubuntu', sans-serif;
     display:flex;
+    justify-content: center;
 }
