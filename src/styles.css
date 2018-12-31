@@ -6,13 +6,14 @@
     grid-gap:20px;
     grid-template-columns: 50% 50%;
     grid-template-rows: 10vh 80vh;
+    min-width: 80vw;
 }
 
 .title {
     background: #0F2027;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to left, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to letf, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+    min-height: 80px;
     font-family: 'Ubuntu Condensed', sans-serif;
     font-size: 30pt;
     color:white;

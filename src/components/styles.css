@@ -1,8 +1,33 @@
 .aLocations {
+    background: whitesmoke;
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-height: 65vh;
+    max-height: 80vh;
     overflow: auto;
     padding:10px;
+    border-radius: 3px;
 }
+
+/* width */
+::-webkit-scrollbar {
+    width: 15px;
+}
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #0F2027;
+    box-shadow: inset 0 0 5px inset #203A43; 
+    border-radius:2px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(50, 90, 104); 
+    border-radius: 3px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background:rgb(62, 110, 128);
+  }
