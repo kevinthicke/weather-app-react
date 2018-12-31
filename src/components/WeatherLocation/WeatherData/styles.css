@@ -11,15 +11,22 @@
     width:210px;
     font-size: 12pt;
     display:flex;
+    margin-left:30px;
     justify-content: center;
-    align-items: center;
+    align-items: start;
     flex-direction: column;
+    list-style-type: none;
 }
 
 .WeatherData {
     display:flex;
+    max-width:420px;
+}
+
+.WeatherExtraInfoItem{
+    margin-left:23px;
 }
 
 .WeatherTemperatureItem {
-    margin-left:20px;
+    margin-left:auto;
 }

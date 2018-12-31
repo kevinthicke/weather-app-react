@@ -20,7 +20,7 @@
     grid-row:0;
     grid-column:span 2;
     display:flex;
-    padding-left:30px;
+    padding-left:40px;
     justify-content: left;
     align-items: center;
 }

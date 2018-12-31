@@ -4,8 +4,8 @@ import * as styles from './styles.css';
 
 const WeatherExtraInfo = ({ pressure, humidity }) => (
     <div className={styles.WeatherExtraInfo}>
-            <span> Pressure { pressure } atm</span>
-            <span> Humidity { humidity } %</span>
+            <li className={styles.WeatherExtraInfoItem}> Pressure { pressure } atm</li>
+            <li className={styles.WeatherExtraInfoItem}> Humidity { humidity } %</li>
         </div>
 )
 
