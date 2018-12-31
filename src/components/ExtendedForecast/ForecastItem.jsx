@@ -5,6 +5,16 @@ import getForecast from '../../utils/getForecast';
 import WeatherData from '../WeatherLocation/WeatherData';
 import * as styles from './styles.css';
 
+const filterForecastByHour = (forecastData) => {
+    const morning = 6;
+    const midday = 12;
+    const afternoon = 18;
+    return forecastData.filter( data => 
+        moment.unix(data.unixTime).hour() === morning ||
+        moment.unix(data.unixTime).hour() === midday ||
+        moment.unix(data.unixTime).hour() === afternoon);
+} 
+
 export default class ForecastItem extends Component {
     constructor() {
         super();
@@ -16,16 +26,10 @@ export default class ForecastItem extends Component {
 
     componentDidMount() {
         const { city } = this.props;
-        const aForecast = [];
+        
         getForecast(city).then(forecast => {
             const { name, aLimitedForecastData: forecastData } = forecast;
-            forecastData.map(data => {
-                if (
-                    moment.unix(data.unixTime).hour()===6 ||
-                    moment.unix(data.unixTime).hour()===12 ||
-                    moment.unix(data.unixTime).hour()===18
-                    ) aForecast.push(data);
-            });
+            const aForecast = filterForecastByHour(forecastData);
             this.setState({ city:name, forecastData:aForecast });
         });
     }
@@ -40,7 +44,7 @@ export default class ForecastItem extends Component {
     }
 
     render() {
-        const { city, forecastData } = this.state;
+        const { forecastData } = this.state;
         
         return (
             <div className={styles.ForecastExtended}> 
