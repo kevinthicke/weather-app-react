@@ -15,7 +15,7 @@ const filterForecastByHour = (forecastData) => {
         moment.unix(data.unixTime).hour() === afternoon);
 } 
 
-export default class ForecastItem extends Component {
+export default class ExtendedForecast extends Component {
     constructor() {
         super();
         this.state = {
@@ -36,6 +36,7 @@ export default class ForecastItem extends Component {
 
     showListForecast() {
         const { forecastData } = this.state;
+
         return forecastData.map(data => {
             const { humidity, pressure, temperature, weatherId } = data;
             const myData = { humidity, pressure, temperature, weatherId };
@@ -57,6 +58,6 @@ export default class ForecastItem extends Component {
     }
 }
 
-ForecastItem.propTypes = {
+ExtendedForecast.propTypes = {
     city: PropTypes.string
 }

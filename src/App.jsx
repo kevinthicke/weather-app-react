@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import * as styles from './styles.css';
 import LocationList from './components/LocationList';
-import ExtendedForecast from './components/ExtendedForecast/ForecastItem';
+import ExtendedForecast from './components/ExtendedForecast/';
 
 const aLocations = ["Bogota", "Lima", "Medellín", "Tenerife", "Barcelona", "Roma", "Cali", "London"];
 
