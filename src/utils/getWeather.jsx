@@ -12,7 +12,6 @@ const limitWeatherData = data => {
             id: weatherId
         }]
     } = data;
-
     return ({ temperature, pressure, humidity,weatherId })
 }
 

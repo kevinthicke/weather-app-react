@@ -16,10 +16,12 @@ const limitedForecastData = data => {
                 humidity,
                 pressure,
                 temp: temperature
-            }
+            },
+            weather: [{
+                id: weatherId
+            }]
         } = fullForecastData;
-
-        return ({ unixTime, humidity, pressure, temperature}); 
+        return ({ unixTime, humidity, pressure, temperature, weatherId}); 
     })
 
     return ({ name, aLimitedForecastData});
@@ -30,6 +32,7 @@ export default function getForecast (city) {
     return fetch(url).then(
         response => response.json()).then(
             data => {
+                console.log(limitedForecastData(data));
                 return limitedForecastData(data)
         });
 }
