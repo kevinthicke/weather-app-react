@@ -1,19 +1,25 @@
 .WeatherTemperature {
     font-size: 18pt;
     height: 100px;
-    width:50%;
+    width:210px;
     display:flex;
     justify-content: center;
     align-items: center;
 }
 
 .WeatherExtraInfo {
-    font-size: 14pt;
+    width:210px;
+    font-size: 12pt;
     display:flex;
-    margin:auto;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
 }
 
 .WeatherData {
     display:flex;
+}
+
+.WeatherTemperatureItem {
+    margin-left:20px;
 }
