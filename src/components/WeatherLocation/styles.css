@@ -6,11 +6,18 @@
     background: -webkit-linear-gradient(to bottom, #00c6ff, #00b7ff);
     /* IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ 
     background: linear-gradient(to bottom, #00c6ff, #00b7ff); 
-    width: 420px;
-    height: 150px;
+    min-width: 420px;
+    min-height: 150px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items:center;
     border-radius: 5px;
+
+}
+
+.WeatherLocation:hover {
+    box-shadow: 0 0 1pt royalblue;
 }
 
 .Location {

@@ -2,8 +2,7 @@ import { urlWeather } from "./url";
 import fetch from 'node-fetch';
 
 const limitWeatherData = data => {
-    const { 
-        name:city, 
+    const {  
         main: { 
             temp: temperature,
             pressure,
@@ -14,7 +13,7 @@ const limitWeatherData = data => {
         }]
     } = data;
 
-    return ({ city, temperature, pressure, humidity,weatherId })
+    return ({ temperature, pressure, humidity,weatherId })
 }
 
 export default function getWeather(city) {

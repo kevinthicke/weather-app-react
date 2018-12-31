@@ -9,9 +9,10 @@ const LocationList = ({ aLocations, onSelectedLocation }) => {
     }
 
     const showLocationList = () => {
-        return aLocations.map(city => <WeatherLocation city={city} 
-                                                       key={city}
-                                                       onWeatherLocationClick={() => handleWeatherLocationClick(city)}/>)
+        return aLocations.map(
+                city => <WeatherLocation city={city} 
+                                         key={city}
+                                         onWeatherLocationClick={() => handleWeatherLocationClick(city)}/>)
     }
 
     return (

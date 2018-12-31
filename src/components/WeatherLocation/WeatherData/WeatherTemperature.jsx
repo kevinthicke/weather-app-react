@@ -7,7 +7,7 @@ const WeatherTemperature = ({ temperature }) => {
     const temp = TemperatureConverter(temperature);
     return (
         <span className={styles.WeatherTemperature}> { temp }ºC</span>
-    )    
+    );    
 }
 
 WeatherTemperature.propTypes = {

@@ -31,6 +31,5 @@ export default function getForecast (city) {
         response => response.json()).then(
             data => {
                 return limitedForecastData(data)
-            })
-
+        });
 }
