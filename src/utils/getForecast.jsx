@@ -1,16 +1,19 @@
 import { urlForecast } from './url';
+import filterForecastByHour from './moment';
 
-const limitedForecastData = data => {
+
+const limitForecast = data => {
     const {
         city: {
             name
         },
-        list
+        list: forecast
     } = data;
 
-
-    const aLimitedForecastData =list.map(fullForecastData => {
-        const {
+    const aFilteredForecastByHour = filterForecastByHour(forecast);
+    
+    return aFilteredForecastByHour.map(element => {
+        const { 
             dt: unixTime,
             main: {
                 humidity,
@@ -20,19 +23,15 @@ const limitedForecastData = data => {
             weather: [{
                 id: weatherId
             }]
-        } = fullForecastData;
-        return ({ unixTime, humidity, pressure, temperature, weatherId}); 
-    })
+        } = element;
 
-    return ({ name, aLimitedForecastData});
+        return({ unixTime, humidity, pressure, temperature, weatherId });
+    });
 }
 
 export default function getForecast (city) {
     const url = urlForecast(city);
     return fetch(url).then(
         response => response.json()).then(
-            data => {
-                console.log(limitedForecastData(data));
-                return limitedForecastData(data)
-        });
+            data => limitForecast(data));
 }

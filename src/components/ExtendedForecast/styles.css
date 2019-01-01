@@ -5,3 +5,20 @@
     max-height: 80vh;
     overflow: auto;
 }
+
+.forecastItem{
+    margin:10px;
+    /* fallback for old browsers */
+    background: #00c6ff; 
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to bottom, #00c6ff, #00b7ff);
+    /* IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ 
+    background: linear-gradient(to bottom, #00c6ff, #00b7ff); 
+    border-radius: 3px;
+}
+
+.datetime{
+    font-size:14pt;
+    margin-left:25px;
+    font-weight: bold;
+}

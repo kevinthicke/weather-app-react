@@ -5,52 +5,37 @@ import getForecast from '../../utils/getForecast';
 import WeatherData from '../WeatherLocation/WeatherData';
 import * as styles from './styles.css';
 
-const filterForecastByHour = (forecastData) => {
-    const morning = 6;
-    const midday = 12;
-    const afternoon = 18;
-    return forecastData.filter( data => 
-        moment.unix(data.unixTime).hour() === morning ||
-        moment.unix(data.unixTime).hour() === midday ||
-        moment.unix(data.unixTime).hour() === afternoon);
-} 
-
 export default class ExtendedForecast extends Component {
     constructor() {
         super();
         this.state = {
-            city: null,
-            forecastData: null
+            forecast: null
         }
     }
 
     componentDidMount() {
         const { city } = this.props;
-        
-        getForecast(city).then(forecast => {
-            const { name, aLimitedForecastData: forecastData } = forecast;
-            const aForecast = filterForecastByHour(forecastData);
-            this.setState({ city:name, forecastData:aForecast });
-        });
+        getForecast(city).then(forecast => this.setState({ forecast }));
     }
 
-    showListForecast() {
-        const { forecastData } = this.state;
-
-        return forecastData.map(data => {
-            const { humidity, pressure, temperature, weatherId } = data;
-            const myData = { humidity, pressure, temperature, weatherId };
-            return <WeatherData data={myData} key={data.unixTime}/>
+    showForecastExtended(forecast) {
+        return forecast.map(element => {
+            const { unixTime, ... data } = element;
+            return (
+                <div className={styles.forecastItem} key={unixTime}>
+                    <span className={styles.datetime}>{ moment.unix(unixTime).format("MMMM Do YYYY, h:mm:ss a") }</span>
+                    <WeatherData data={data}/>
+                </div>
+            )
         })
     }
 
     render() {
-        const { forecastData } = this.state;
-        
+        const { forecast } = this.state;
         return (
             <div className={styles.ForecastExtended}> 
                 {
-                    forecastData ? this.showListForecast() : "...loading"
+                    forecast ? this.showForecastExtended(forecast) : "...loading"
                 }
             </div>
         )
