@@ -3,6 +3,7 @@ import moment from 'moment';
 import PropTypes from 'prop-types';
 import getForecast from '../../utils/getForecast';
 import WeatherData from '../WeatherLocation/WeatherData';
+import { unixTimeToString } from './../../utils/moment';
 import * as styles from './styles.css';
 
 export default class ExtendedForecast extends Component {
@@ -23,7 +24,9 @@ export default class ExtendedForecast extends Component {
             const { unixTime, ... data } = element;
             return (
                 <div className={styles.forecastItem} key={unixTime}>
-                    <span className={styles.datetime}>{ moment.unix(unixTime).format("MMMM Do YYYY, h:mm:ss a") }</span>
+                    <span className={styles.datetime}>
+                        { unixTimeToString(unixTime) }
+                    </span>
                     <WeatherData data={data}/>
                 </div>
             )
