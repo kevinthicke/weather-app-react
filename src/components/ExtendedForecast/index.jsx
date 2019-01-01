@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import moment from 'moment';
 import PropTypes from 'prop-types';
 import getForecast from '../../utils/getForecast';
 import WeatherData from '../WeatherLocation/WeatherData';
@@ -14,9 +13,16 @@ export default class ExtendedForecast extends Component {
         }
     }
 
-    componentDidMount() {
+    componentWillMount() {
         const { city } = this.props;
         getForecast(city).then(forecast => this.setState({ forecast }));
+    }
+
+    /*se ejecuta si hay alguna actualizacion de las propiedades*/
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.city!=this.props.city){
+            getForecast(nextProps.city).then(forecast => this.setState({ forecast }));
+        }
     }
 
     showForecastExtended(forecast) {
@@ -35,6 +41,7 @@ export default class ExtendedForecast extends Component {
 
     render() {
         const { forecast } = this.state;
+        console.log(this.props)
         return (
             <div className={styles.ForecastExtended}> 
                 {
