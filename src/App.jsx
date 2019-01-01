@@ -22,7 +22,7 @@ export default class App extends Component {
           <LocationList aLocations={aLocations} onSelectedLocation={this.handleSelectedLocation}/>   
           <div className={styles.ExtendedForecast}> 
           { 
-            !city ? "...Loading": <ExtendedForecast city={city}/>  
+            !city ? "Select a city": <ExtendedForecast city={city}/>  
           }
           </div>      
       </div>

@@ -44,6 +44,7 @@ export default class ExtendedForecast extends Component {
         console.log(this.props)
         return (
             <div className={styles.ForecastExtended}> 
+                <h2>Extended forecast for { this.props.city }</h2>
                 {
                     forecast ? this.showForecastExtended(forecast) : "...loading"
                 }
