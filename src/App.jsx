@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
-import * as styles from './styles.css';
+import { Grid, Row, Col, Navbar } from 'react-bootstrap';
 import LocationList from './components/LocationList';
 import ExtendedForecast from './components/ExtendedForecast/';
 
 const aLocations = ["Bogota", "Lima", "Medellín", "Tenerife", "Barcelona", "Roma", "Cali", "London"];
+
+const title =  
+  <Navbar inverse staticTop>
+    <Navbar.Header>
+      <Navbar.Brand>
+        <a href="#"> Weather App </a>
+      </Navbar.Brand>
+    </Navbar.Header>
+  </Navbar>;
 
 export default class App extends Component {
   constructor() {
@@ -17,15 +26,20 @@ export default class App extends Component {
     const { city } = this.state;
 
     return (
-      <div className={styles.App}>
-          <div className={styles.title}> Weather App </div>
-          <LocationList aLocations={aLocations} onSelectedLocation={this.handleSelectedLocation}/>   
-          <div className={styles.ExtendedForecast}> 
-          { 
-            !city ? "Select a city": <ExtendedForecast city={city}/>  
-          }
-          </div>      
-      </div>
+      <Grid>
+        { title }
+        <Row>
+          <Col xs={12} md={6}>
+            <LocationList aLocations={aLocations} onSelectedLocation={this.handleSelectedLocation}/>
+          </Col>
+          <Col xs={12} md={6}>
+            { 
+              !city ? "Select a city": <ExtendedForecast city={city}/>  
+            }
+          </Col>
+        </Row>
+      </Grid>
+        
       );
-  }
+    }
 }
